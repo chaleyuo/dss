@@ -1,5 +1,4 @@
 import pandas as pd
-pip install numpy
 import numpy as np
 
 def remove_list_item (*, the_list, the_item):
