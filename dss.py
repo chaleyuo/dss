@@ -1,7 +1,3 @@
-%%capture
-!pip install pyforest
-import pyforest 
-
 import pandas as pd
 import numpy as np
 
