@@ -1,7 +1,6 @@
 import pandas as pd
-%%capture
-!pip install pyforest
-import pyforest 
+pip install numpy
+import numpy as np
 
 def remove_list_item (*, the_list, the_item):
   new_list = [item for item in the_list if item != the_item]
