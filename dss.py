@@ -19,7 +19,7 @@ def percent_change (*, new, old):
   change = (new - old)/old
   return change
 
-def replace_outliers (*, df, column):
+def replace_high_outliers (*, df, column):
   sigma = np.std(df['column'])
   sigma3 = sigma * 3
   high_wall = df['column'].mean() + sigma3
