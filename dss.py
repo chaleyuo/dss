@@ -27,3 +27,20 @@ def replace_high_outliers (*, df, column):
   cleaned_column = [min(item, high_wall) for item in column_list]
   df['column']= cleaned_column
   return None
+
+def decision_rule(*, triple):
+  actual = triple[2]
+  c_0_score = triple[0][1]
+  prediction = 0 if c_0_score > 0 else 1  #ternary conditional
+  return [prediction, actual]
+
+def mcc(*, tp, tn, fp, fn):
+  denom = (tp+fp)*(tp+fn)*(tn+fp)*(tn+fn)
+  mcc_score = 0 if denom==0 else (tp*tn-fp*fn)/denom**.5 #gets around divide by zero error
+  return mcc_score
+
+def wrangle_text(*, essay):
+  assert isinstance(essay, str) == True
+  doc = nlp(essay)
+  string_essay = [item.text.lower() for item in doc if item.is_alpha and not item.is_oov and not item.is_stop]
+  return string_essay
