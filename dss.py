@@ -56,3 +56,15 @@ def recall(*, tp, fn):
 
 def f1_score(*, p, r):
   return 2*p*r/(p+r)
+
+def mcc_from_pairs(*, p_a_pairs):
+  mscore = mcc(tp=p_a_pairs.count([1,1]),
+                tn=p_a_pairs.count([0,0]),
+                fp=p_a_pairs.count([1,0]),  #predicted 1 but actual 0, i.e., FP
+                fn=p_a_pairs.count([0,1]))
+  return mscore
+
+def f1_from_pairs(*, p_a_pairs):
+  p = precision(tp=p_a_pairs.count([1,1], fp = p_a_pairs.count([1,0])
+  r = recall(tp=p_a_pairs.count([1,1], fn = fn=p_a_pairs.count([0,1])
+  fscore = f1_score(p = p, r =r)
