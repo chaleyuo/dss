@@ -44,3 +44,15 @@ def wrangle_text(*, essay):
   doc = nlp(essay)
   string_essay = [item.text.lower() for item in doc if item.is_alpha and not item.is_oov and not item.is_stop]
   return string_essay
+
+def accuracy(*, tp, tn, fp, fn):
+  return (tp+tn)/(tp+tn+fp+fn)
+
+def precision(*, tp, fp):
+  return tp/(tp+fp)
+
+def recall(*, tp, fn):
+  return tp/(tp+fn)
+
+def f1_score(*, p, r):
+  return 2*p*r/(p+r)
