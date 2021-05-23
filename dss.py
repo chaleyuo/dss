@@ -66,5 +66,5 @@ def mcc_from_pairs(*, p_a_pairs):
 
 def f1_from_pairs(*, p_a_pairs):
   p = precision(tp=p_a_pairs.count([1,1], fp = p_a_pairs.count([1,0])
-  r = recall(tp=p_a_pairs.count([1,1], fn = fn=p_a_pairs.count([0,1])
+  r = recall(tp=p_a_pairs.count([1,1], fn = p_a_pairs.count([0,1])
   fscore = f1_score(p = p, r =r)
