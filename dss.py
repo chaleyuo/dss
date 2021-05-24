@@ -49,7 +49,9 @@ def accuracy(*, tp, tn, fp, fn):
   return (tp+tn)/(tp+tn+fp+fn)
 
 def precision(*, tp, fp):
-  return tp/(tp+fp)
+  denom = tp+fp
+  prec = 0 if denom==0 else (tp/(tp+fp))/denom**.5
+  return prec
 
 def recall(*, tp, fn):
   return tp/(tp+fn)
