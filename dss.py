@@ -46,15 +46,19 @@ def wrangle_text(*, essay):
   return string_essay
 
 def accuracy(*, tp, tn, fp, fn):
-  return (tp+tn)/(tp+tn+fp+fn)
+  denom = (tp+tn+fp+fn)
+  acc = 0 if denom==0 else (tp+tn)/denom
+  return acc
 
 def precision(*, tp, fp):
   denom = tp+fp
-  prec = 0 if denom==0 else (tp/(tp+fp))/denom**.5
+  prec = 0 if denom==0 else (tp/denom)
   return prec
 
 def recall(*, tp, fn):
-  return tp/(tp+fn)
+  denom = tp+fn
+  rec = 0 if denom==0 else (tp/denom)
+  return rec
 
 def f1_score(*, p, r):
   return 2*p*r/(p+r)
